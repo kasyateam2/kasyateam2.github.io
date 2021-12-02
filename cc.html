@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Генератор QRCode</title>
+        <script src="assets/kteam.js"></script>
+        <link rel="stylesheet" href="assets/style.css">
+        <link rel="icon" href="assets/img/kasya.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets//css/uicons-regular-rounded.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <body onload="b_load()">
+        <header><div id="head"><div id="logo"><span>Kasya Team</span> </div></div></div></div></header>
+
+        <main>           
+<div id="feed">
+       <div id="feed-main">    
+        <h1 class="p-3">Генератор QRCode</h1>
+    </div>
+    <div id="feed-main"> Ваш QRCode
+        <div id="qrCodeOutput" class="text-center">
+            Здесь будет сгенерированный QR-код
+        </div>
+    </div>
+    <div id="feed_1">
+        <div id="app">
+            <div class="text">
+                <form>
+                    <div class="form-group mx-3 my-3">
+                        <textarea  id="qrCodeText" class="textarea" rows="6"></textarea>
+                    </div>
+                    <div class="form-group  mx-3 my-3">
+                        
+                    </div>
+                </form>
+            </div>
+    </div>
+    
+    </div>
+    
+    <div id="feed_2"> 
+        <input type="button"  class="button" value="Создать" id="generateQRCode">
+        </div>
+
+</div>
+
+</div>
+<div id="bar">
+
+    <div id="bar_center">
+
+        <div id="bar-select">
+            <a href="./feed">
+                <span class="fi-rr-notebook"></span>
+            </a>
+        </div>
+        <div id="bar-select">
+            <a href="./kasya_id">
+                <span class="fi-rr-user"></span>
+            </a>
+        </div>
+        <div id="bar-select">
+            <a href="./k-feed">
+                <span class="fi-rr-mobile"></span>
+            </a>
+        </div>
+        <div id="bar-select">
+            <a href="./programm">
+                <span class="fi-rr-grid"></span>
+            </a>
+        </div>
+        <div id="bar-select">
+            <a href="./email">
+                <span class="fi-rr-envelope"></span>
+            </a>
+        </div>
+    </div>
+    </div>
+        </main>
+        <footer>
+KTeam | Kasya Team 2021
+        </footer>
+
+        <div id="cookie_bar"><h4>Cookie</h4><h6>Наш сайт использует cookie. Вы можете ознакомиться с <a href="privacy.html">Политикой конфидециальности</a></h6><button onclick="as()">Принимаю</button></div>
+
+
+        <script src="assets/qr.js"></script>
+        <script src="assets/code.js"></script>
+        <script>
+            const el = (selector) => document.querySelector(selector);
+    
+    
+            // при нажатии на кнопку
+            el('#generateQRCode').addEventListener('click', function() {
+               
+                // получаем блок куда будет выводиться QR-код
+                let qrCodeOutput = el('#qrCodeOutput');
+    
+                // получаем содержимое текстового поля
+                let text = el('#qrCodeText').value;
+    
+                // очищаем блок с QR-кодом
+                qrCodeOutput.innerHTML = "";
+    
+                // и помещаем в него сгенерированный библиотекой QR-код
+                qrCodeOutput.append(QRCode.generateHTML(text, {}))
+            });
+    
+        </script>
+    </body>
+
+</html>
