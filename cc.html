@@ -7,6 +7,8 @@
         <link rel="icon" href="assets/img/kasya.ico" type="image/x-icon">
         <link rel="stylesheet" href="assets//css/uicons-regular-rounded.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="text/javascript" src="assets/html2canvas.js"></script>
+        <script type="text/javascript" src="assets/FileSaver.js"></script>
     </head>
 
     <body onload="b_load()">
@@ -18,16 +20,18 @@
         <h1 class="p-3">Генератор QRCode</h1>
     </div>
     <div id="feed-main"> Ваш QRCode
+        <div id="content">
         <div id="qrCodeOutput" class="text-center">
             Здесь будет сгенерированный QR-код
         </div>
+    </div>
     </div>
     <div id="feed_1">
         <div id="app">
             <div class="text">
                 <form>
                     <div class="form-group mx-3 my-3">
-                        <textarea  id="qrCodeText" class="textarea" rows="6"></textarea>
+                        <textarea style="width: 100%;"  id="qrCodeText" class="textarea" rows="6"></textarea>
                     </div>
                     <div class="form-group  mx-3 my-3">
                         
@@ -41,7 +45,20 @@
     <div id="feed_2"> 
         <input type="button"  class="button" value="Создать" id="generateQRCode">
         </div>
+        <div id="feed_2"> 
+            <button onclick="GoScreen()">Создать изображение</button>
+            </div>
+            <div id="feed_2"> 
+                <div id="createPNGButton">
+                    <button onclick="downloadImage()">Скачать изображение</button>        
+                   </div>       
+                </div>
 
+
+
+
+                <div id="feed_1"><div id="result"></div></div>
+            
 </div>
 
 </div>
@@ -104,6 +121,32 @@ KTeam | Kasya Team 2021
             });
     
         </script>
+
+<script>
+
+    function GoScreen() {
+     
+     html2canvas(document.getElementById("content")).then(function(canvas) {
+  
+      var my_screen = canvas;
+  
+      document.getElementById("result").appendChild(my_screen);
+      my_screen.setAttribute("id", "thecanvas");
+  
+     });    
+    
+    }
+  
+    function downloadImage()
+          {
+              var canvas = document.getElementById("thecanvas");
+     // draw to canvas...
+     canvas.toBlob(function(blob) {
+         saveAs(blob, "raxel_ava.png");
+     });
+          }  
+  
+      </script>
     </body>
 
 </html>
