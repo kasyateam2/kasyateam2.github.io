@@ -427,18 +427,15 @@ hr{
     left: 0px;
     bottom: 0px;
     width: 100%;
-    padding: 10px;
+    
+    padding: 10px 0px 10px 0px;
     height: auto;
-    display: block;
-}
-#bar_center{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
-    display: block;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 #bar-select{
-    float: left;
-    margin: 5px 20px 5px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-sizing: border-box;
 }
